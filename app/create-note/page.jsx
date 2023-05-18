@@ -18,7 +18,8 @@ const CreateNote = () => {
 
     const createNote = async (e) => {
         e.preventDefault()
-
+        setSubmitting(true)
+        
         try {
             const response = await fetch('/api/note/new',
             {
