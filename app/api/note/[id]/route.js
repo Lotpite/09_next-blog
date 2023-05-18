@@ -49,11 +49,8 @@ export const PATCH = async (request, { params }) => {
 export const DELETE = async (request, { params }) => {
     try {
         await connectToDB()
-
         await Note.findByIdAndRemove(params.id)
-        alert(
-            params.id
-        )
+        
         return new Response("Note deleted successfully", {
             status: 200
         })

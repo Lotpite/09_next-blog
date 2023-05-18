@@ -23,9 +23,27 @@ const Feed = () => {
 
   const [searchText, setSearchText] = useState('')
   const [posts, setPosts] = useState([])
+  const [filteredPosts, setFilteredPosts] = useState(posts)
+
+  const searchPost = (searchQuery) => {
+    const searchedPosts = posts.filter(post => {
+      if(post.note.includes(searchQuery) || post.author.username.includes(searchQuery) || post.tag.includes(searchQuery)) {
+        return true
+      } 
+
+      return false 
+    })
+    setFilteredPosts(searchedPosts)
+
+  }
+
   const handleSearchChange = (e) => {
     e.preventDefault();
+    setSearchText(e.target.value)
+    searchPost(e.target.value)
   }
+
+ 
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -53,7 +71,7 @@ const Feed = () => {
       </form>
 
       <NoteCardList 
-        data={posts}
+        data={searchText ? filteredPosts : posts}
         handleTagClick={() => {}}/>
     </section>
   )
