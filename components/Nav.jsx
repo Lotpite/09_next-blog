@@ -11,15 +11,11 @@ const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  const setUpProviders = async () => {
-      const res = await getProviders();
-      console.log(res)
-      setProviders(res);
-  }
-
   useEffect(() => {
-    console.log('Navigation here it is')
-    setUpProviders()
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
   }, []);
 
   return (
@@ -32,15 +28,15 @@ const Nav = () => {
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Note-Forgot</p>
+        <p className='logo_text'>Promptopia</p>
       </Link>
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
         {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-note' className='black_btn'>
-              Create Note
+            <Link href='/create-prompt' className='black_btn'>
+              Create Post
             </Link>
 
             <button type='button' onClick={signOut} className='outline_btn'>
@@ -99,11 +95,11 @@ const Nav = () => {
                   My Profile
                 </Link>
                 <Link
-                  href='/create-note'
+                  href='/create-prompt'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >
-                  Create Note
+                  Create Prompt
                 </Link>
                 <button
                   type='button'
