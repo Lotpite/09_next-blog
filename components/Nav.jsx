@@ -59,21 +59,17 @@ const Nav = () => {
             </Link>
           </div>
         ) : (
-          <>
-            {providers &&
-              Object.values(providers).map((provider) => (
+          // <Link href={`/api/auth/signin`}>
                 <button
                   type='button'
-                  key={provider.name}
                   onClick={() => {
-                    signIn(provider.id);
+                    signIn();
                   }}
                   className='black_btn'
                 >
                   Sign in
                 </button>
-              ))}
-          </>
+          // </Link>
         )}
       </div>
 
