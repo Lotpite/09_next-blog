@@ -13,10 +13,12 @@ const Nav = () => {
 
   const setUpProviders = async () => {
       const res = await getProviders();
+      console.log(res)
       setProviders(res);
   }
 
   useEffect(() => {
+    console.log('Navigation here it is')
     setUpProviders()
   }, []);
 
