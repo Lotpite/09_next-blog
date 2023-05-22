@@ -112,7 +112,8 @@ const Nav = () => {
           <>
                 <button
                   type='button'
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     signIn();
                   }}
                   className='black_btn'
