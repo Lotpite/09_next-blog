@@ -52,8 +52,9 @@ const Nav = () => {
         ) : (
                 <button
                   type='button'
-                  onClick={() => {
-                    signIn();
+                  onClick={(e) => {
+                  e.preventDefault()
+                    signIn()
                   }}
                   className='black_btn'
                 >
@@ -109,7 +110,8 @@ const Nav = () => {
                 <button
                   type='button'
                   onClick={(e) => {
-                    signIn();
+                  e.preventDefault()
+                    signIn()
                   }}
                   className='black_btn'
                 >
