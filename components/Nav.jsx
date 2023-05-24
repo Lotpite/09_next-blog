@@ -3,14 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
 
   const [toggleDropdown, setToggleDropdown] = useState(false);
-
-  
 
   useEffect(() => {
    
@@ -52,7 +50,6 @@ const Nav = () => {
             </Link>
           </div>
         ) : (
-          // <Link href={`/api/auth/signin`}>
                 <button
                   type='button'
                   onClick={() => {
@@ -62,7 +59,6 @@ const Nav = () => {
                 >
                   Sign in
                 </button>
-          // </Link>
         )}
       </div>
 
@@ -113,7 +109,6 @@ const Nav = () => {
                 <button
                   type='button'
                   onClick={(e) => {
-                    e.preventDefault()
                     signIn();
                   }}
                   className='black_btn'
