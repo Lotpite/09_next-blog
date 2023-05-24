@@ -41,7 +41,8 @@ const handler = NextAuth({
         return false
       }
     },
-  }
+  },
+  secret: process.env.NEXTAUTH_SECRET
 })
 
 export { handler as GET, handler as POST }
